@@ -3,6 +3,7 @@ const request = require("supertest");
 const app = require("../../app");
 
 const { mongoConnect, mongoDisconnect } = require("../../../utils/mongo");
+const { loadPlanetsData } = require("../../models/planets.model");
 
 jest.mock("passport", () => ({
   authenticate: () => (req, res, next) => next(),
