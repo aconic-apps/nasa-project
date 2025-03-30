@@ -4,14 +4,21 @@ const app = require("../../app");
 
 const { mongoConnect, mongoDisconnect } = require("../../../utils/mongo");
 
-app.use((req, res, next) => {
-  req.user = {
-    id: "test123",
-    email: "test@example.com",
-  };
-  req.isAuthenticated = () => true;
-  next();
-});
+jest.mock("passport", () => ({
+  authenticate: () => (req, res, next) => next(),
+  initialize: () => (req, res, next) => next(),
+  session: () => (req, res, next) => {
+    req.user = {
+      id: "test123",
+      email: "test@example.com",
+    };
+    req.isAuthenticated = () => true;
+    next();
+  },
+  use: () => {},
+  serializeUser: () => {},
+  deserializeUser: () => {},
+}));
 
 describe("Launches API", () => {
   beforeAll(async () => {
