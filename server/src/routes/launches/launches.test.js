@@ -4,13 +4,24 @@ const app = require("../../app");
 
 const { mongoConnect, mongoDisconnect } = require("../../../utils/mongo");
 
-const { mockAuth } = require("../../../utils/middlewares");
-
-jest.mock(mockAuth);
-
 describe("Launches API", () => {
   beforeAll(async () => {
     await mongoConnect();
+  });
+
+  beforeEach(() => {
+    const mockSession = {
+      passport: {
+        user: "test123",
+      },
+    };
+
+    // Apply mock session to all requests
+    app.use((req, res, next) => {
+      req.session = mockSession;
+      req.user = mockSession.passport.user;
+      next();
+    });
   });
 
   afterAll(async () => {
