@@ -4,6 +4,10 @@ const app = require("../../app");
 
 const { mongoConnect, mongoDisconnect } = require("../../../utils/mongo");
 
+const { mockAuth } = require("../../../utils/middlewares");
+
+jest.mock(mockAuth);
+
 describe("Launches API", () => {
   beforeAll(async () => {
     await mongoConnect();

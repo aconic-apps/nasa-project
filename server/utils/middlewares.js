@@ -10,4 +10,10 @@ const checkAuth = (req, res, next) => {
   next();
 };
 
-module.exports = { checkAuth };
+const mockAuth = (req, res, next) => {
+  // Mock authenticated user
+  req.user = "test123";
+  next();
+};
+
+module.exports = { checkAuth, mockAuth };
