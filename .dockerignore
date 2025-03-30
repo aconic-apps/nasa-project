@@ -1,0 +1,19 @@
+.git
+.gitignore
+.env
+*/node_modules
+# Certificates and Keys
+*.pem
+*.key
+*.crt
+*.csr
+*.srl
+*.p12
+*.pfx
+/certificates/
+/keys/
+
+# Logs
+logs
+*.log
+npm-debug.log*

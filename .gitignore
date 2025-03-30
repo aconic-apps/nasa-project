@@ -23,3 +23,19 @@ yarn-error.log*
 # OS generated files
 .DS_Store
 .DS_Store?
+
+# Certificates and Keys
+*.pem
+*.key
+*.crt
+*.csr
+*.srl
+*.p12
+*.pfx
+/certificates/
+/keys/
+
+# Logs
+logs
+*.log
+npm-debug.log*
