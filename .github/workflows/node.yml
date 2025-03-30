@@ -9,10 +9,14 @@ jobs:
     env:
       CI: true
       MONGO_URL: mongodb://localhost:27017/nasa
+      GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+      GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+      COOKIE_KEY_1: ${{ secrets.COOKIE_KEY_1 }}
+      COOKIE_KEY_2: ${{ secrets.COOKIE_KEY_2 }}
     strategy:
       matrix:
         node-version: [18.x, 20.x]
-        mongo-version: [6.0]
+        mongo-version: [6.x]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
