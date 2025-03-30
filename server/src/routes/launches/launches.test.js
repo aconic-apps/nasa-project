@@ -23,6 +23,7 @@ jest.mock("passport", () => ({
 describe("Launches API", () => {
   beforeAll(async () => {
     await mongoConnect();
+    await loadPlanetsData();
   });
 
   afterAll(async () => {
