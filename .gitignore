@@ -2,6 +2,7 @@
 node_modules/
 /client/node_modules
 /server/node_modules
+/server/data/kepler_data.csv
 
 # Build files
 /client/build
