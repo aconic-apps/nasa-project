@@ -20,6 +20,7 @@ describe("Launches API", () => {
     app.use((req, res, next) => {
       req.session = mockSession;
       req.user = mockSession.passport.user;
+      req.isAuthenticated = () => true;
       next();
     });
   });
