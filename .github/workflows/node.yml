@@ -13,6 +13,7 @@ jobs:
       GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
       COOKIE_KEY_1: ${{ secrets.COOKIE_KEY_1 }}
       COOKIE_KEY_2: ${{ secrets.COOKIE_KEY_2 }}
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
     strategy:
       matrix:
         node-version: [18.x, 20.x]
