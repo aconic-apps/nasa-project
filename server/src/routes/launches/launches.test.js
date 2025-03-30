@@ -18,22 +18,6 @@ describe("Launches API", () => {
     await mongoConnect();
   });
 
-  beforeEach(() => {
-    const mockSession = {
-      passport: {
-        user: "test123",
-      },
-    };
-
-    // Apply mock session to all requests
-    app.use((req, res, next) => {
-      req.session = mockSession;
-      req.user = mockSession.passport.user;
-      req.isAuthenticated = () => true;
-      next();
-    });
-  });
-
   afterAll(async () => {
     await mongoDisconnect();
   });
