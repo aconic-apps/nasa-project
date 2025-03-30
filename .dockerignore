@@ -13,6 +13,8 @@
 /certificates/
 /keys/
 
+server/public
+
 # Logs
 logs
 *.log
