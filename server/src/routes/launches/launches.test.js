@@ -4,6 +4,15 @@ const app = require("../../app");
 
 const { mongoConnect, mongoDisconnect } = require("../../../utils/mongo");
 
+app.use((req, res, next) => {
+  req.user = {
+    id: "test123",
+    email: "test@example.com",
+  };
+  req.isAuthenticated = () => true;
+  next();
+});
+
 describe("Launches API", () => {
   beforeAll(async () => {
     await mongoConnect();
